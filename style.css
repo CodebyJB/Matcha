@@ -1,0 +1,43 @@
+/* font: montserrat */
+@font-face {
+  font-family: "Montserrat 400";
+  src: local(""),
+    url("./fonts/montserrat-v24-latin-regular.woff2") format("woff2"),
+    url("./fonts/montserrat-v24-latin-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Montserrat 700";
+  src: local(""), url("./fonts/montserrat-v24-latin-700.woff2") format("woff2"),
+    url("./fonts/montserrat-v24-latin-700.woff") format("woff");
+}
+/* font: dancing-script */
+@font-face {
+  font-family: "Dancing Script";
+  src: local(""),
+    url("./fonts/dancing-script-v23-latin-regular.woff2") format("woff2"),
+    url("../fonts/dancing-script-v23-latin-regular.woff") format("woff");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Montserrat";
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+h1 {
+  font-family: "Dancing Script";
+}
