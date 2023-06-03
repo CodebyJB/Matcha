@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: "Montserrat";
+  font-family: "Montserrat 400";
 }
 input,
 button,
@@ -38,6 +38,368 @@ img {
   display: block;
   max-width: 100%;
 }
-h1 {
-  font-family: "Dancing Script";
+:root {
+  --light-green: #d5ecc1;
+  --med-green: #94d882;
+  --dark-green: #668865;
+  --matcha-green: #66bc33;
+}
+i {
+  cursor: pointer;
+  position: absolute;
+  color: var(--matcha-green);
+  font-size: 4rem;
+  transition: 0.5s ease;
+}
+i:hover {
+  color: var(--dark-green);
+}
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ------ mobile / tablet ------ */
+@media only screen and (max-width: 500px) {
+  /* ----- slider img ----- */
+  header img {
+    animation: opacity 4s;
+  }
+  @keyframes opacity {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .slideshow_container {
+    max-width: 900px;
+    margin: 50px auto 0 auto;
+    position: relative;
+    background-color: var(--dark-green);
+  }
+  .left,
+  .right {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2rem;
+    font-size: 3rem;
+  }
+  .left {
+    left: 0;
+  }
+  .right {
+    right: 0;
+  }
+
+  /* ----- slider title ----- */
+  .title {
+    position: relative;
+  }
+  h1 {
+    font-family: "Dancing Script";
+    font-size: 6rem;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--matcha-green);
+    margin-bottom: 3rem;
+  }
+  .title_container {
+    font-size: 2.5rem;
+    color: var(--dark-green);
+    position: absolute;
+    bottom: -2rem;
+    right: 4rem;
+  }
+
+  /* ----- about ----- */
+  .about {
+    /* max-width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .about > figure {
+    width: 350px;
+    /* flex-basis: 30%; */
+    background-color: var(--light-green);
+    cursor: pointer;
+  }
+  .about > figure > img:hover {
+    opacity: 0.75;
+  }
+  .about > figure > figcaption {
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+  }
+
+  /* ----- modal ----- */
+  .modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 0%, 0.55);
+    z-index: 100;
+  }
+  .modal_content {
+    position: absolute;
+    width: 80vw;
+    top: 25%;
+    right: 50%;
+    transform: translateY(-50%);
+    transform: translateX(50%);
+    background-color: var(--med-green);
+    padding: 5rem 1.5rem 1.5rem;
+    border-radius: 5px;
+  }
+  .modal_content > p {
+    font-size: 1.5rem;
+  }
+  .modal_content > h3 {
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  .close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+  }
+  /* .open_modal {
+    opacity: 1;
+    visibility: visible;
+  } */
+
+  /* ----- img gallery / lightbox ----- */
+  .lightbox_container {
+    margin: 3rem auto;
+  }
+  .lightbox_img {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .lightbox_img img {
+    width: 400px;
+    height: 500px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.6s;
+  }
+  .lightbox_img img:hover {
+    opacity: 1;
+  }
+  /* .lightbox_img .img_modal {
+    transform: scale(3);
+    opacity: 1;
+    position: absolute;
+    top: 30%;
+    z-index: 100;
+  } */
+  .icons {
+    opacity: 0;
+    visibility: hidden;
+    font-size: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    align-self: flex-start;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+  }
+  .icons_show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .close_x,
+  .download,
+  .zoom_in,
+  .zoom_out {
+    z-index: 101;
+  }
+  /* .lightbox_img .img_zoom_in {
+  transform: scale(4);
+}
+.lightbox_img .img_zoom_out {
+  transform: scale(2);
+} */
+}
+
+/* ------ desktop ------ */
+@media only screen and (min-width: 501px) {
+  /* ----- slider img ----- */
+  header img {
+    animation: opacity 4s;
+  }
+  @keyframes opacity {
+    from {
+      opacity: 0.2;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .slideshow_container {
+    max-width: 900px;
+    margin: 50px auto 0 auto;
+    position: relative;
+    background-color: var(--dark-green);
+  }
+  .left,
+  .right {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2rem;
+  }
+  .left {
+    left: 0;
+  }
+  .right {
+    right: 0;
+  }
+
+  /* ----- slider title ----- */
+  .title {
+    position: relative;
+  }
+  h1 {
+    font-family: "Dancing Script";
+    font-size: 10rem;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--matcha-green);
+    margin-bottom: 3rem;
+  }
+  .title_container {
+    font-size: 5rem;
+    color: var(--dark-green);
+    position: absolute;
+    bottom: -3rem;
+    right: 4rem;
+  }
+
+  /* ----- about ----- */
+  .about {
+    /* max-width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .about > figure {
+    min-width: 300px;
+    max-width: 500px;
+    flex-basis: 30%;
+    background-color: var(--light-green);
+    cursor: pointer;
+  }
+  .about > figure > img:hover {
+    opacity: 0.75;
+  }
+  .about > figure > figcaption {
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 2rem;
+  }
+
+  /* ----- modal ----- */
+  .modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 0%, 0.55);
+    z-index: 100;
+  }
+  .modal_content {
+    position: absolute;
+    width: 80vw;
+    max-width: 750px;
+    top: 25%;
+    right: 50%;
+    transform: translateY(-50%);
+    transform: translateX(50%);
+    background-color: var(--med-green);
+    padding: 5rem 1.5rem 1.5rem;
+    border-radius: 5px;
+  }
+  .modal_content > p {
+    font-size: 1.5rem;
+  }
+  .modal_content > h3 {
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+  }
+  .close {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+  }
+  /* .open_modal {
+    opacity: 1;
+    visibility: visible;
+  } */
+
+  /* ----- img gallery / lightbox ----- */
+  .lightbox_container {
+    margin: 3rem auto;
+  }
+  .lightbox_img {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .lightbox_img img {
+    width: 175px;
+    height: 250px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.6s;
+  }
+  .lightbox_img img:hover {
+    opacity: 1;
+  }
+  /* .lightbox_img .img_modal {
+    transform: scale(3);
+    opacity: 1;
+    position: absolute; 
+    top: 30%;
+     z-index: 100; 
+  } */
+  .icons {
+    opacity: 0;
+    visibility: hidden;
+    font-size: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    align-self: flex-start;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+  }
+  .icons_show {
+    opacity: 1;
+    visibility: visible;
+  }
+  .close,
+  .download,
+  .zoom_in,
+  .zoom_out {
+    z-index: 101;
+  }
+  /* .lightbox_img .img_zoom_in {
+  transform: scale(4);
+}
+.lightbox_img .img_zoom_out {
+  transform: scale(2);
+} */
 }
