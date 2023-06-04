@@ -46,7 +46,6 @@ img {
 }
 i {
   cursor: pointer;
-  position: absolute;
   color: var(--matcha-green);
   font-size: 4rem;
   transition: 0.5s ease;
@@ -85,6 +84,7 @@ i:hover {
     transform: translateY(-50%);
     padding: 2rem;
     font-size: 3rem;
+    position: absolute;
   }
   .left {
     left: 0;
@@ -175,60 +175,45 @@ i:hover {
     visibility: visible;
   } */
 
-  /* ----- img gallery / lightbox ----- */
-  .lightbox_container {
+  /* ----- img gallery ----- */
+  .gallery_container {
     margin: 3rem auto;
+    position: relative;
   }
-  .lightbox_img {
+  .gallery_img {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
     justify-content: center;
   }
-  .lightbox_img img {
-    width: 400px;
+  .image_container {
+    position: relative;
+    margin: 0.75rem;
+  }
+  .image_container img {
+    width: 375px;
     height: 500px;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 1;
     transition: 0.6s;
   }
-  .lightbox_img img:hover {
-    opacity: 1;
+  .image_container:hover img {
+    opacity: 0.5;
   }
-  /* .lightbox_img .img_modal {
-    transform: scale(3);
-    opacity: 1;
+  .icon {
     position: absolute;
-    top: 30%;
-    z-index: 100;
-  } */
-  .icons {
-    opacity: 0;
-    visibility: hidden;
-    font-size: 2.5rem;
-    display: flex;
-    gap: 1rem;
-    align-self: flex-start;
-    position: absolute;
-    top: 5%;
+    top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-  .icons_show {
+  .icon i {
+    font-size: 5rem;
+    padding: 3rem;
+  }
+  .image_container:hover .icon {
     opacity: 1;
-    visibility: visible;
   }
-  .close_x,
-  .download,
-  .zoom_in,
-  .zoom_out {
-    z-index: 101;
-  }
-  /* .lightbox_img .img_zoom_in {
-  transform: scale(4);
-}
-.lightbox_img .img_zoom_out {
-  transform: scale(2);
-} */
 }
 
 /* ------ desktop ------ */
@@ -256,6 +241,7 @@ i:hover {
     top: 50%;
     transform: translateY(-50%);
     padding: 2rem;
+    position: absolute;
   }
   .left {
     left: 0;
@@ -348,58 +334,47 @@ i:hover {
     visibility: visible;
   } */
 
-  /* ----- img gallery / lightbox ----- */
-  .lightbox_container {
+  /* ----- img gallery ----- */
+  .gallery_container {
     margin: 3rem auto;
+    position: relative;
   }
-  .lightbox_img {
+
+  .gallery_img {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
     justify-content: center;
   }
-  .lightbox_img img {
+
+  .image_container {
+    position: relative;
+    margin: 0.75rem;
+  }
+
+  .image_container img {
     width: 175px;
     height: 250px;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 1;
     transition: 0.6s;
   }
-  .lightbox_img img:hover {
-    opacity: 1;
+
+  .image_container:hover img {
+    opacity: 0.5;
   }
-  /* .lightbox_img .img_modal {
-    transform: scale(3);
-    opacity: 1;
-    position: absolute; 
-    top: 30%;
-     z-index: 100; 
-  } */
-  .icons {
-    opacity: 0;
-    visibility: hidden;
-    font-size: 2.5rem;
-    display: flex;
-    gap: 1rem;
-    align-self: flex-start;
+  .icon {
     position: absolute;
-    top: 5%;
+    top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-  .icons_show {
+  .icon i {
+    font-size: 2.5rem;
+    padding: 2rem;
+  }
+  .image_container:hover .icon {
     opacity: 1;
-    visibility: visible;
   }
-  .close,
-  .download,
-  .zoom_in,
-  .zoom_out {
-    z-index: 101;
-  }
-  /* .lightbox_img .img_zoom_in {
-  transform: scale(4);
-}
-.lightbox_img .img_zoom_out {
-  transform: scale(2);
-} */
 }
