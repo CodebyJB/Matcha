@@ -1,23 +1,67 @@
 "use strict";
 
-// ----- slider img -----
 const renderSliderImg = (data) => {
   console.log(data);
 };
 
-// ----- slider title -----
 const renderSliderTitle = (data) => {
   console.log(data);
 };
 
 // ----- about / modal -----
-// const renderModalData = (data) => {
-//     console.log(data);
-//   };
+const aboutContainer = document.querySelector(".about_container");
+const modalContainer = document.querySelector(".modal_container");
 
-// // ----- img gallery  -----
+// open modal
+const showModal = (index) => {
+  renderModalData(modalData, index);
+  modalContainer.style.display = "block";
+};
+
+// close modal
+const closeModal = () => {
+  modalContainer.style.display = "none";
+};
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("close")) {
+    closeModal();
+  }
+});
+
+const renderModalData = (data, index) => {
+  const html = `
+      <div class="modal_content">
+      <i class="fa-regular fa-circle-xmark close"></i>
+     <h3>${data[index].title}</h3>
+      <p>${data[index].text}</p>
+      </div>
+  `;
+
+  modalContainer.innerHTML = html;
+};
+
+const renderAboutData = (data) => {
+  const html = data
+    .map((item, index) => {
+      return `
+            <figure class="about_item" data-index="${index}">
+              <img src="${item.img}" alt="${item.alt}" />
+              <figcaption>${item.title}</figcaption>
+            </figure>
+          `;
+    })
+    .join("");
+
+  aboutContainer.innerHTML = html;
+
+  const aboutItems = document.querySelectorAll(".about_item");
+  aboutItems.forEach((item) =>
+    item.addEventListener("click", () => showModal(item.dataset.index))
+  );
+};
+
 const renderGallery = (data) => {
-  console.log(data);
   const galleryContainer = document.querySelector(".gallery_container");
 
   const html = `
@@ -36,30 +80,38 @@ const renderGallery = (data) => {
         .join("")}
     </figure>`;
 
-  //   console.log(html);
   galleryContainer.innerHTML = html;
 };
 
-// ----- get JSON Data -----
-async function getJSONData(url, callback) {
+async function getJSONData(url) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    callback(data);
+    return data;
   } catch (error) {
     console.log("Fehler beim Abrufen der JSON-Daten:", error);
     throw error;
   }
 }
-
+let modalData;
 async function dataCall() {
-  const sliderImgData = await getJSONData("sliderImg.json", renderSliderImg);
-  const sliderTitleData = await getJSONData(
-    "sliderTitle.json",
-    renderSliderTitle
-  );
-  // const modalData = await getJSONData(".json".renderModalData);
-  const galleryData = await getJSONData("gallery.json", renderGallery);
+  try {
+    const sliderImgData = await getJSONData("sliderImg.json");
+    renderSliderImg(sliderImgData);
+
+    const sliderTitleData = await getJSONData("sliderTitle.json");
+    renderSliderTitle(sliderTitleData);
+
+    const aboutData = await getJSONData("about.json");
+    renderAboutData(aboutData);
+
+    modalData = await getJSONData("modal.json");
+
+    const galleryData = await getJSONData("gallery.json");
+    renderGallery(galleryData);
+  } catch (error) {
+    console.log("Fehler beim Abrufen der JSON-Daten:", error);
+  }
 }
 
 dataCall();

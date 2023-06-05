@@ -113,31 +113,31 @@ i:hover {
     right: 4rem;
   }
 
-  /* ----- about ----- */
-  .about {
+  /* ----- about_container ----- */
+  .about_container {
     /* max-width: 100%; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
   }
-  .about > figure {
+  .about_item {
     width: 350px;
     /* flex-basis: 30%; */
     background-color: var(--light-green);
     cursor: pointer;
   }
-  .about > figure > img:hover {
+  .about_item > img:hover {
     opacity: 0.75;
   }
-  .about > figure > figcaption {
+  .about_item > figcaption {
     text-align: center;
     padding: 0.5rem 0;
     font-size: 1.5rem;
   }
 
   /* ----- modal ----- */
-  .modal {
+  .modal_container {
     display: none;
     position: fixed;
     left: 0;
@@ -149,8 +149,8 @@ i:hover {
   }
   .modal_content {
     position: absolute;
-    width: 80vw;
-    top: 25%;
+    width: 90vw;
+    top: 2.55%;
     right: 50%;
     transform: translateY(-50%);
     transform: translateX(50%);
@@ -159,21 +159,17 @@ i:hover {
     border-radius: 5px;
   }
   .modal_content > p {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   .modal_content > h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-bottom: 1.5rem;
   }
   .close {
     position: fixed;
-    top: 2rem;
-    right: 2rem;
+    top: 1rem;
+    right: 1rem;
   }
-  /* .open_modal {
-    opacity: 1;
-    visibility: visible;
-  } */
 
   /* ----- img gallery ----- */
   .gallery_container {
@@ -270,32 +266,32 @@ i:hover {
     right: 4rem;
   }
 
-  /* ----- about ----- */
-  .about {
+  /* ----- about_container ----- */
+  .about_container {
     /* max-width: 100%; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
   }
-  .about > figure {
+  .about_item {
     min-width: 300px;
     max-width: 500px;
     flex-basis: 30%;
     background-color: var(--light-green);
     cursor: pointer;
   }
-  .about > figure > img:hover {
+  .about_item > img:hover {
     opacity: 0.75;
   }
-  .about > figure > figcaption {
+  .about_item > figcaption {
     text-align: center;
     padding: 0.5rem 0;
     font-size: 2rem;
   }
 
   /* ----- modal ----- */
-  .modal {
+  .modal_container {
     display: none;
     position: fixed;
     left: 0;
@@ -309,7 +305,7 @@ i:hover {
     position: absolute;
     width: 80vw;
     max-width: 750px;
-    top: 25%;
+    top: 15%;
     right: 50%;
     transform: translateY(-50%);
     transform: translateX(50%);
@@ -329,10 +325,6 @@ i:hover {
     top: 2rem;
     right: 2rem;
   }
-  /* .open_modal {
-    opacity: 1;
-    visibility: visible;
-  } */
 
   /* ----- img gallery ----- */
   .gallery_container {
