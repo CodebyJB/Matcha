@@ -232,6 +232,7 @@ i:hover {
     position: relative;
     background-color: var(--dark-green);
   }
+
   .left,
   .right {
     top: 50%;

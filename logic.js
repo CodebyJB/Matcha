@@ -1,9 +1,69 @@
 "use strict";
 
-const renderSliderImg = (data) => {
-  console.log(data);
+// ----- slider Img -----
+const preloadImages = (images) => {
+  for (let i = 0; i < images.length; i++) {
+    const img = new Image();
+    img.src = images[i];
+  }
 };
 
+let sliderImgs = [];
+let currentImageIndex = 0;
+let lastImg = false;
+const newImg = new Image();
+
+const increment = () => {
+  currentImageIndex++;
+  if (currentImageIndex >= sliderImgs.length) {
+    currentImageIndex = 0;
+  }
+  sliderImgEl();
+};
+
+const decrement = () => {
+  currentImageIndex--;
+  if (currentImageIndex < 0) {
+    currentImageIndex = sliderImgs.length - 1;
+  }
+  sliderImgEl();
+};
+
+const sliderImgEl = () => {
+  const sliderContainer = document.querySelector(".slideshow_container");
+
+  const html = `
+      <figure class="img_container">
+        <img src="${sliderImgs[currentImageIndex]}" alt="Matcha Bild" />
+      </figure>
+      <i class="fa-solid fa-angle-left left"></i>
+      <i class="fa-solid fa-angle-right right"></i>
+    `;
+
+  sliderContainer.innerHTML = html;
+
+  const incrementBtn = document.querySelector(".right");
+  const decrementBtn = document.querySelector(".left");
+
+  incrementBtn.addEventListener("click", increment);
+  decrementBtn.addEventListener("click", decrement);
+
+  newImg.src = sliderImgs[currentImageIndex];
+
+  newImg.addEventListener("load", () => {
+    if (lastImg) lastImg.remove();
+    lastImg = newImg;
+  });
+};
+
+const renderSliderImg = (data) => {
+  sliderImgs = data;
+  sliderImgEl();
+  setInterval(increment, 4000);
+  preloadImages(sliderImgs);
+};
+
+// ----- slider title -----
 const renderSliderTitle = (data) => {
   console.log(data);
 };
