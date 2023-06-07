@@ -5,11 +5,7 @@
     url("./fonts/montserrat-v24-latin-regular.woff2") format("woff2"),
     url("./fonts/montserrat-v24-latin-regular.woff") format("woff");
 }
-@font-face {
-  font-family: "Montserrat 700";
-  src: local(""), url("./fonts/montserrat-v24-latin-700.woff2") format("woff2"),
-    url("./fonts/montserrat-v24-latin-700.woff") format("woff");
-}
+
 /* font: dancing-script */
 @font-face {
   font-family: "Dancing Script";
@@ -58,316 +54,249 @@ i:hover {
   margin: 0 auto;
 }
 
+/* ----- scroll to top ----- */
+.scroll_up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 102;
+}
+
+.scroll_up.sticky {
+  display: block;
+}
+
+/* ----- slider img ----- */
+header img {
+  animation: opacity 4s;
+}
+@keyframes opacity {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slideshow_container {
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  position: relative;
+  background-color: var(--dark-green);
+}
+.left,
+.right {
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2rem;
+  font-size: 3rem;
+  position: absolute;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+/* ----- slider title ----- */
+.title {
+  position: relative;
+}
+h1 {
+  font-family: "Dancing Script";
+  display: flex;
+  justify-content: flex-end;
+  color: var(--matcha-green);
+  margin-bottom: 3rem;
+}
+.title_container {
+  font-size: 2.5rem;
+  color: var(--dark-green);
+  position: absolute;
+  bottom: -2rem;
+  right: 4rem;
+}
+
+/* ----- about_container ----- */
+.about_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.about_item {
+  background-color: var(--light-green);
+  cursor: pointer;
+}
+.about_item > img:hover {
+  opacity: 0.75;
+}
+.about_item > figcaption {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* ----- modal ----- */
+.modal_container {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.55);
+  z-index: 100;
+}
+.modal_content {
+  position: absolute;
+  transform: translateY(-50%);
+  transform: translateX(50%);
+  background-color: var(--med-green);
+  padding: 5rem 1.5rem 1.5rem;
+  border-radius: 5px;
+}
+.modal_content > h3 {
+  padding-bottom: 1.5rem;
+}
+.close {
+  position: fixed;
+}
+
+/* ----- img gallery ----- */
+.gallery_container {
+  margin: 3rem auto;
+  position: relative;
+}
+.gallery_img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.image_container {
+  position: relative;
+  margin: 0.75rem;
+}
+.image_container img {
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.6s;
+}
+.image_container:hover img {
+  opacity: 0.5;
+}
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.image_container:hover .icon {
+  opacity: 1;
+}
+
 /* ------ mobile / tablet ------ */
 @media only screen and (max-width: 500px) {
-  /* ----- slider img ----- */
-  header img {
-    animation: opacity 4s;
-  }
-  @keyframes opacity {
-    from {
-      opacity: 0.2;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .slideshow_container {
-    max-width: 900px;
-    margin: 50px auto 0 auto;
-    position: relative;
-    background-color: var(--dark-green);
-  }
-  .left,
-  .right {
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 2rem;
-    font-size: 3rem;
-    position: absolute;
-  }
-  .left {
-    left: 0;
-  }
-  .right {
-    right: 0;
-  }
-
   /* ----- slider title ----- */
-  .title {
-    position: relative;
-  }
   h1 {
-    font-family: "Dancing Script";
     font-size: 6rem;
-    display: flex;
-    justify-content: flex-end;
-    color: var(--matcha-green);
-    margin-bottom: 3rem;
   }
   .title_container {
     font-size: 2.5rem;
-    color: var(--dark-green);
-    position: absolute;
-    bottom: -2rem;
-    right: 4rem;
+  }
+  .left,
+  .right {
+    font-size: 3rem;
   }
 
   /* ----- about_container ----- */
-  .about_container {
-    /* max-width: 100%; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
+
   .about_item {
     width: 350px;
-    /* flex-basis: 30%; */
-    background-color: var(--light-green);
-    cursor: pointer;
-  }
-  .about_item > img:hover {
-    opacity: 0.75;
   }
   .about_item > figcaption {
-    text-align: center;
-    padding: 0.5rem 0;
     font-size: 1.5rem;
   }
 
   /* ----- modal ----- */
-  .modal_container {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: hsla(0, 0%, 0%, 0.55);
-    z-index: 100;
-  }
   .modal_content {
-    position: absolute;
     width: 90vw;
     top: 2.55%;
     right: 50%;
-    transform: translateY(-50%);
-    transform: translateX(50%);
-    background-color: var(--med-green);
-    padding: 5rem 1.5rem 1.5rem;
-    border-radius: 5px;
   }
   .modal_content > p {
     font-size: 1.25rem;
   }
   .modal_content > h3 {
     font-size: 1.5rem;
-    padding-bottom: 1.5rem;
   }
   .close {
-    position: fixed;
     top: 1rem;
     right: 1rem;
   }
 
   /* ----- img gallery ----- */
-  .gallery_container {
-    margin: 3rem auto;
-    position: relative;
-  }
-  .gallery_img {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .image_container {
-    position: relative;
-    margin: 0.75rem;
-  }
   .image_container img {
     width: 375px;
     height: 500px;
-    cursor: pointer;
-    opacity: 1;
-    transition: 0.6s;
-  }
-  .image_container:hover img {
-    opacity: 0.5;
-  }
-  .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
   .icon i {
     font-size: 5rem;
     padding: 3rem;
   }
-  .image_container:hover .icon {
-    opacity: 1;
-  }
 }
 
 /* ------ desktop ------ */
 @media only screen and (min-width: 501px) {
-  /* ----- slider img ----- */
-  header img {
-    animation: opacity 4s;
-  }
-  @keyframes opacity {
-    from {
-      opacity: 0.2;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .slideshow_container {
-    max-width: 900px;
-    margin: 50px auto 0 auto;
-    position: relative;
-    background-color: var(--dark-green);
-  }
-
-  .left,
-  .right {
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 2rem;
-    position: absolute;
-  }
-  .left {
-    left: 0;
-  }
-  .right {
-    right: 0;
-  }
-
   /* ----- slider title ----- */
-  .title {
-    position: relative;
-  }
   h1 {
-    font-family: "Dancing Script";
     font-size: 10rem;
-    display: flex;
-    justify-content: flex-end;
-    color: var(--matcha-green);
-    margin-bottom: 3rem;
   }
   .title_container {
     font-size: 5rem;
-    color: var(--dark-green);
-    position: absolute;
-    bottom: -3rem;
-    right: 4rem;
+  }
+  .left,
+  .right {
+    font-size: 4rem;
   }
 
   /* ----- about_container ----- */
-  .about_container {
-    /* max-width: 100%; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
   .about_item {
     min-width: 300px;
     max-width: 500px;
     flex-basis: 30%;
-    background-color: var(--light-green);
-    cursor: pointer;
-  }
-  .about_item > img:hover {
-    opacity: 0.75;
   }
   .about_item > figcaption {
-    text-align: center;
-    padding: 0.5rem 0;
     font-size: 2rem;
   }
 
   /* ----- modal ----- */
-  .modal_container {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: hsla(0, 0%, 0%, 0.55);
-    z-index: 100;
-  }
   .modal_content {
-    position: absolute;
     width: 80vw;
     max-width: 750px;
     top: 15%;
     right: 50%;
-    transform: translateY(-50%);
-    transform: translateX(50%);
-    background-color: var(--med-green);
-    padding: 5rem 1.5rem 1.5rem;
-    border-radius: 5px;
   }
   .modal_content > p {
     font-size: 1.5rem;
   }
   .modal_content > h3 {
     font-size: 2rem;
-    padding-bottom: 1.5rem;
   }
   .close {
-    position: fixed;
     top: 2rem;
     right: 2rem;
   }
 
   /* ----- img gallery ----- */
-  .gallery_container {
-    margin: 3rem auto;
-    position: relative;
-  }
-
-  .gallery_img {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .image_container {
-    position: relative;
-    margin: 0.75rem;
-  }
-
   .image_container img {
     width: 175px;
     height: 250px;
-    cursor: pointer;
-    opacity: 1;
-    transition: 0.6s;
-  }
-
-  .image_container:hover img {
-    opacity: 0.5;
-  }
-  .icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
   .icon i {
     font-size: 2.5rem;
     padding: 2rem;
-  }
-  .image_container:hover .icon {
-    opacity: 1;
   }
 }
