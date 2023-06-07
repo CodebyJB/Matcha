@@ -227,6 +227,7 @@ async function getJSONData(url) {
     return data;
   } catch (error) {
     console.log("Fehler beim Abrufen der JSON-Daten:", error);
+    alert(`Something went wrong! ${error.message}`);
     throw error;
   }
 }

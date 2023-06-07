@@ -9,7 +9,6 @@ The Matcha Website is a responsive and interactive web application that showcase
 - HTML
 - CSS
 - JavaScript
-- Bootstrap
 
 ## Features:
 
