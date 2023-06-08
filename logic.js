@@ -1,9 +1,11 @@
 "use strict";
 
+// ----- scroll-to-top button -----
+
 // Select the scroll-to-top button
 const scrollToTopBtn = document.querySelector(".scroll_up");
 // Select the trigger element for the sticky button
-const scrollTrigger = document.querySelector(".title");
+const scrollTrigger = document.querySelector(".slideshow_container");
 
 // Function to toggle the sticky button based on intersection
 const toggleStickyButton = (entries) => {
